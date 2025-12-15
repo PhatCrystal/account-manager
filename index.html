@@ -52,21 +52,27 @@
                         <h3 class="grid-title">Tất cả tài khoản</h3>
                         <div id="accountGrid" class="grid dropzone"></div>
                     </div>
-            
                     <!-- DANH SÁCH TÊN HIỂN THỊ -->
                     <div class="grid-wrapper full-width">
-                        <h3 class="grid-title">
-                            📄 Danh sách tên hiển thị
-                            <button id="copyAllNamesBtn" class="btn small ghost" style="margin-left:10px">
+                        <h3 class="grid-title name-list-header">
+                            <div class="name-list-left">
+                                <button id="toggleNameList" class="btn-icon ghost" title="Thu gọn / Mở rộng">
+                                    <i class="fas fa-chevron-right"></i>
+                                </button>
+                                <span>📄 Danh sách tên hiển thị</span>
+                            </div>
+                    
+                            <button id="copyAllNamesBtn" class="btn small ghost">
                                 📋 Copy tất cả
                             </button>
                         </h3>
                         
-                        <div id="accountNameList" class="account-name-list">
-                            <span class="muted">Chưa có dữ liệu</span>
+                        <div id="accountNameWrapper" class="collapsed">
+                            <div id="accountNameList" class="account-name-list">
+                                <span class="muted">Chưa có dữ liệu</span>
+                            </div>
                         </div>
                     </div>
-            
                 </div>
             </section>
         </main>
