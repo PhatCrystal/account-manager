@@ -49,6 +49,60 @@ const confirmSaveBtn = document.getElementById('confirmSave');
 const confirmDiscardBtn = document.getElementById('confirmDiscard');
 const cancelConfirmBtn = document.getElementById('cancelConfirm');
 const confirmChangesModalMsg = document.getElementById('confirmChangesModalMsg');
+const accountNameListEl = document.getElementById("accountNameList");
+const copyAllNamesBtn = document.getElementById("copyAllNamesBtn");
+
+function renderAccountNameList() {
+    if (!accountNameListEl) return;
+
+    let names = [];
+
+    for (const platform in data) {
+        if (!data.hasOwnProperty(platform)) continue;
+        data[platform].forEach(acc => {
+            if (acc.name) names.push(acc.name.trim());
+        });
+    }
+
+    if (!names.length) {
+        accountNameListEl.innerHTML = `<span class="muted">Chưa có dữ liệu</span>`;
+        return;
+    }
+
+    accountNameListEl.innerHTML = names.map(n =>
+        `<div class="account-name-item" data-name="${escapeHtml(n)}">${escapeHtml(n)}</div>`
+    ).join("");
+}
+
+// CLICK COPY TỪNG NAME
+accountNameListEl.addEventListener("click", e => {
+    const item = e.target.closest(".account-name-item");
+    if (!item) return;
+
+    const name = item.dataset.name;
+    navigator.clipboard.writeText(name);
+
+    item.classList.add("copied");
+    setTimeout(() => item.classList.remove("copied"), 500);
+});
+
+// COPY TOÀN BỘ
+copyAllNamesBtn?.addEventListener("click", () => {
+    let names = [];
+
+    for (const platform in data) {
+        if (!data.hasOwnProperty(platform)) continue;
+        data[platform].forEach(acc => {
+            if (acc.name) names.push(acc.name.trim());
+        });
+    }
+
+    if (!names.length) return alert("Không có name");
+
+    navigator.clipboard.writeText(names.join("\n"))
+        .then(() => alert(`Đã copy ${names.length} name`));
+});
+
 // =========================================================================
 // 2. Hàm Tiện ích (Utils)
 // =========================================================================
@@ -718,6 +772,7 @@ function handleDrop(e) {
         }
         
         updateNurtureCount(); 
+        renderAccountNameList();
     }
 }
 // =========================================================================
