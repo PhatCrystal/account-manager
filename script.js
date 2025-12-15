@@ -263,11 +263,9 @@ function renderNurturedAccounts() {
     updateNurturePlaceholder();
 }
 
-
 function renderAccounts() {
     accountGrid.innerHTML = "";
 
-    // ❗ THÊM: reset danh sách tên
     const nameListBox = document.getElementById("accountNameList");
     if (nameListBox) {
         nameListBox.innerHTML = `<span class="muted">Chưa có dữ liệu</span>`;
@@ -286,16 +284,24 @@ function renderAccounts() {
     currentPlatformTitle.innerText = currentPlatform;
     platformSummary.innerText = `${list.length} tài khoản`;
 
-    // ❗ THÊM: mảng tên hiển thị theo platform
     const displayNames = [];
 
     list.forEach((acc, idx) => {
         if (!acc.id) {
             acc.id = Date.now().toString(36) + Math.random().toString(36).substr(2);
         }
+
+        // 🔹 VẪN CHỈ RENDER CARD KHÔNG NURTURE
+        if (!acc.isNurtured) {
+            const card = createAccountCard(acc, idx, platMeta, currentPlatform);
+            accountGrid.appendChild(card);
+        }
+
+        // ✅ LẤY TÊN CẢ NURTURE + KHÔNG NURTURE
+        if (acc.name) displayNames.push(acc.name);
     });
 
-    // ❗ THÊM: render danh sách tên hiển thị
+    // Render danh sách tên
     if (nameListBox) {
         nameListBox.innerHTML = "";
 
@@ -313,7 +319,6 @@ function renderAccounts() {
 
     updateNurtureCount();
 }
-
 // Tạo thẻ tài khoản
 // Đã sửa: Thêm tham số 'platformName' để dragend biết nguồn gốc của thẻ khi thẻ nằm trong Modal
 function createAccountCard(acc, idx, platMeta, platformName) {
