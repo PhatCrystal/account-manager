@@ -293,14 +293,6 @@ function renderAccounts() {
         if (!acc.id) {
             acc.id = Date.now().toString(36) + Math.random().toString(36).substr(2);
         }
-
-        // ❗ CHỈ LẤY account KHÔNG nurture
-        if (!acc.isNurtured) {
-            const card = createAccountCard(acc, idx, platMeta, currentPlatform);
-            accountGrid.appendChild(card);
-
-            if (acc.name) displayNames.push(acc.name);
-        }
     });
 
     // ❗ THÊM: render danh sách tên hiển thị
