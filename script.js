@@ -42,6 +42,25 @@ const nurtureCountElement = document.getElementById('nurtureCount'); // Đã th�
 let initialAccountFormData = null; 
 let initialPlatformFormData = null;
 let currentEditingModalElement = null; // Theo dõi modal hiện tại (accountModal hoặc platformModal)
+let nameListCollapsed = true;
+
+const toggleNameBtn = document.getElementById("toggleNameList");
+const nameWrapper = document.getElementById("accountNameWrapper");
+
+function updateNameListUI() {
+    if (!toggleNameBtn || !nameWrapper) return;
+
+    toggleNameBtn.classList.toggle("open", !nameListCollapsed);
+    nameWrapper.classList.toggle("expanded", !nameListCollapsed);
+    nameWrapper.classList.toggle("collapsed", nameListCollapsed);
+}
+
+toggleNameBtn.addEventListener("click", () => {
+    nameListCollapsed = !nameListCollapsed;
+    updateNameListUI();
+});
+
+updateNameListUI();
 
 // Khai báo các biến DOM của Modal Xác nhận (đã có ở bản HTML trước)
 const confirmChangesModal = document.getElementById('confirmChangesModal');
