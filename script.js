@@ -53,55 +53,49 @@ const accountNameListEl = document.getElementById("accountNameList");
 const copyAllNamesBtn = document.getElementById("copyAllNamesBtn");
 
 function renderAccountNameList() {
-    if (!accountNameListEl) return;
+    const box = document.getElementById("accountNameList");
+    box.innerHTML = "";
 
-    let names = [];
-
-    for (const platform in data) {
-        if (!data.hasOwnProperty(platform)) continue;
-        data[platform].forEach(acc => {
-            if (acc.name) names.push(acc.name.trim());
-        });
-    }
-
-    if (!names.length) {
-        accountNameListEl.innerHTML = `<span class="muted">Chưa có dữ liệu</span>`;
+    if (!currentPlatform || !data[currentPlatform]?.length) {
+        box.innerHTML = `<span class="muted">Chưa có dữ liệu</span>`;
         return;
     }
 
-    accountNameListEl.innerHTML = names.map(n =>
-        `<div class="account-name-item" data-name="${escapeHtml(n)}">${escapeHtml(n)}</div>`
-    ).join("");
-}
+    const names = data[currentPlatform]
+        .map(acc => acc.name)
+        .filter(Boolean);
 
-// CLICK COPY TỪNG NAME
-accountNameListEl.addEventListener("click", e => {
-    const item = e.target.closest(".account-name-item");
-    if (!item) return;
-
-    const name = item.dataset.name;
-    navigator.clipboard.writeText(name);
-
-    item.classList.add("copied");
-    setTimeout(() => item.classList.remove("copied"), 500);
-});
-
-// COPY TOÀN BỘ
-copyAllNamesBtn?.addEventListener("click", () => {
-    let names = [];
-
-    for (const platform in data) {
-        if (!data.hasOwnProperty(platform)) continue;
-        data[platform].forEach(acc => {
-            if (acc.name) names.push(acc.name.trim());
-        });
+    if (!names.length) {
+        box.innerHTML = `<span class="muted">Không có tài khoản</span>`;
+        return;
     }
 
-    if (!names.length) return alert("Không có name");
+    names.forEach((name, i) => {
+        const div = document.createElement("div");
+        div.className = "account-name-item";
+        div.textContent = `${i + 1}. ${name}`;
+        box.appendChild(div);
+    });
+}
 
-    navigator.clipboard.writeText(names.join("\n"))
-        .then(() => alert(`Đã copy ${names.length} name`));
-});
+document.getElementById("copyAllNamesBtn").onclick = () => {
+    if (!currentPlatform) {
+        alert("Chưa chọn nền tảng");
+        return;
+    }
+
+    const names = data[currentPlatform]
+        ?.filter(acc => !acc.isNurtured) // tùy bạn
+        .map(acc => acc.name)
+        .filter(Boolean);
+
+    if (!names || !names.length) {
+        alert("Không có tài khoản để copy");
+        return;
+    }
+
+    navigator.clipboard.writeText(names.join("\n"));
+};
 
 // =========================================================================
 // 2. Hàm Tiện ích (Utils)
@@ -272,13 +266,17 @@ function renderNurturedAccounts() {
 
 function renderAccounts() {
     accountGrid.innerHTML = "";
-    // Xóa nội dung Nurture Area Modal trước khi render (chỉ trong renderAccounts nếu cần)
-    // if (nurtureAccountGrid) nurtureAccountGrid.innerHTML = ""; // Đã chuyển sang renderNurturedAccounts
+
+    // ❗ THÊM: reset danh sách tên
+    const nameListBox = document.getElementById("accountNameList");
+    if (nameListBox) {
+        nameListBox.innerHTML = `<span class="muted">Chưa có dữ liệu</span>`;
+    }
 
     if (!currentPlatform) {
         currentPlatformTitle.innerText = "Chọn nền tảng";
         platformSummary.innerText = "Chọn nền tảng ở sidebar để xem tài khoản.";
-        updateNurtureCount(); // Dùng hàm tổng thể
+        updateNurtureCount();
         return;
     }
 
@@ -287,22 +285,41 @@ function renderAccounts() {
 
     currentPlatformTitle.innerText = currentPlatform;
     platformSummary.innerText = `${list.length} tài khoản`;
-    
-    
+
+    // ❗ THÊM: mảng tên hiển thị theo platform
+    const displayNames = [];
+
     list.forEach((acc, idx) => {
-        // Gán ID duy nhất nếu chưa có (QUAN TRỌNG)
-        if (!acc.id) acc.id = Date.now().toString(36) + Math.random().toString(36).substr(2);
-        
-        // Chỉ thêm vào lưới chính nếu KHÔNG đang được nuôi dưỡng
+        if (!acc.id) {
+            acc.id = Date.now().toString(36) + Math.random().toString(36).substr(2);
+        }
+
+        // ❗ CHỈ LẤY account KHÔNG nurture
         if (!acc.isNurtured) {
             const card = createAccountCard(acc, idx, platMeta, currentPlatform);
-            accountGrid.appendChild(card); 
+            accountGrid.appendChild(card);
+
+            if (acc.name) displayNames.push(acc.name);
         }
     });
-    
-    // Cập nhật icon Vùng Nuôi (Dùng hàm tổng thể)
+
+    // ❗ THÊM: render danh sách tên hiển thị
+    if (nameListBox) {
+        nameListBox.innerHTML = "";
+
+        if (displayNames.length === 0) {
+            nameListBox.innerHTML = `<span class="muted">Không có tài khoản</span>`;
+        } else {
+            displayNames.forEach((name, i) => {
+                const div = document.createElement("div");
+                div.className = "account-name-item";
+                div.textContent = `${i + 1}. ${name}`;
+                nameListBox.appendChild(div);
+            });
+        }
+    }
+
     updateNurtureCount();
-    // updateNurturePlaceholder(); // Chỉ cần chạy khi modal mở
 }
 
 // Tạo thẻ tài khoản
