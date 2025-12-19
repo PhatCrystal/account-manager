@@ -46,39 +46,52 @@
 
             <section class="content">
                 <div class="grid-container">
-            
-                    <div class="grid-wrapper full-width">
-                        <h3 class="grid-title">Tất cả tài khoản</h3>
-                        <div id="accountGrid" class="grid dropzone"></div>
+                    <div class="tabs-header">
+                        <button class="tab-btn active" data-tab="free">
+                            <i class="fas fa-user-friends"></i> Tự do <span id="count-free" class="badge">0</span>
+                        </button>
+                        <button class="tab-btn" data-tab="batches">
+                            <i class="fas fa-boxes"></i> Theo Lô
+                        </button>
+                        <button class="tab-btn" data-tab="nurture">
+                            <i class="fas fa-seedling"></i> Vùng nuôi <span id="count-nurture" class="badge">0</span>
+                        </button>
                     </div>
 
-                    <div class="grid-wrapper full-width">
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
-                            <h3 class="grid-title" style="margin-bottom: 0;">📦 Quản lý lô tài khoản</h3>
-                            <button id="createNewBatchBtn" class="btn small primary">+ Tạo Lô Mới</button>
-                        </div>
-                        <div id="batchContainer" class="batch-grid">
+                    <div class="tab-content">
+                        <div id="tab-free" class="tab-pane active">
+                            <div class="grid-wrapper full-width">
+                                <div id="accountGrid" class="grid dropzone"></div>
                             </div>
+                        </div>
+
+                        <div id="tab-batches" class="tab-pane">
+                            <div class="grid-wrapper full-width">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                                    <h3 class="grid-title" style="margin-bottom: 0;">📦 Danh sách các Lô</h3>
+                                    <button id="createNewBatchBtn" class="btn small primary">+ Tạo Lô Mới</button>
+                                </div>
+                                <div id="batchContainer" class="batch-grid"></div>
+                            </div>
+                        </div>
+
+                        <div id="tab-nurture" class="tab-pane">
+                            <div class="grid-wrapper full-width">
+                                <div id="nurtureGrid" class="grid dropzone"></div>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="grid-wrapper full-width">
                         <h3 class="grid-title name-list-header">
                             <div class="name-list-left">
-                                <button id="toggleNameList" class="btn-icon ghost" title="Thu gọn / Mở rộng">
-                                    <i class="fas fa-chevron-right"></i>
-                                </button>
+                                <button id="toggleNameList" class="btn-icon ghost"><i class="fas fa-chevron-right"></i></button>
                                 <span>📄 Danh sách tên hiển thị</span>
                             </div>
-                    
-                            <button id="copyAllNamesBtn" class="btn small ghost">
-                                📋 Copy tất cả
-                            </button>
+                            <button id="copyAllNamesBtn" class="btn small ghost">📋 Copy tất cả</button>
                         </h3>
-                        
                         <div id="accountNameWrapper" class="collapsed">
-                            <div id="accountNameList" class="account-name-list">
-                                <span class="muted">Chưa có dữ liệu</span>
-                            </div>
+                            <div id="accountNameList" class="account-name-list"></div>
                         </div>
                     </div>
                 </div>
