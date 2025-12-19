@@ -47,12 +47,20 @@
             <section class="content">
                 <div class="grid-container">
             
-                    <!-- GRID ACCOUNT -->
                     <div class="grid-wrapper full-width">
                         <h3 class="grid-title">Tất cả tài khoản</h3>
                         <div id="accountGrid" class="grid dropzone"></div>
                     </div>
-                    <!-- DANH SÁCH TÊN HIỂN THỊ -->
+
+                    <div class="grid-wrapper full-width">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                            <h3 class="grid-title" style="margin-bottom: 0;">📦 Quản lý lô tài khoản</h3>
+                            <button id="createNewBatchBtn" class="btn small primary">+ Tạo Lô Mới</button>
+                        </div>
+                        <div id="batchContainer" class="batch-grid">
+                            </div>
+                    </div>
+
                     <div class="grid-wrapper full-width">
                         <h3 class="grid-title name-list-header">
                             <div class="name-list-left">
