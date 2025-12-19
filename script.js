@@ -40,97 +40,6 @@ const platIconInput = document.getElementById("plat_icon");
 const platColorInput = document.getElementById("plat_color");
 const nurtureCountElement = document.getElementById('nurtureCount'); // Đã thêm để sử dụng trong updateNurtureCount
 let batches = JSON.parse(localStorage.getItem('batches')) || [];
-
-// 1. Hàm tạo Lô mới
-document.getElementById('createNewBatchBtn').addEventListener('click', () => {
-    const newBatch = {
-        id: 'batch_' + Date.now(),
-        name: `Lô ${batches.length + 1}`
-    };
-    batches.push(newBatch);
-    saveBatches();
-    renderBatches();
-});
-
-// 2. Lưu dữ liệu lô
-function saveBatches() {
-    localStorage.setItem('batches', JSON.stringify(batches));
-}
-
-// 3. Render danh sách lô ra màn hình
-function renderBatches() {
-    const container = document.getElementById('batchContainer');
-    if (!container) return;
-    container.innerHTML = '';
-
-    batches.forEach((batch, index) => {
-        // Đếm số tài khoản thuộc lô này (giả sử account có thuộc tính batchId)
-        const count = allAccounts.filter(acc => acc.batchId === batch.id).length;
-
-        const batchElement = document.createElement('div');
-        batchElement.className = 'batch-item dropzone';
-        batchElement.dataset.batchId = batch.id;
-        batchElement.innerHTML = `
-            <button class="btn-delete-batch" onclick="deleteBatch('${batch.id}')">×</button>
-            <div class="batch-title">Lô ${index + 1}</div>
-            <div class="batch-count">${count} tài khoản</div>
-        `;
-
-        // Sự kiện kéo thả cho từng Lô
-        setupBatchDropEvents(batchElement);
-        
-        container.appendChild(batchElement);
-    });
-}
-
-// 4. Xử lý logic kéo thả (Drag & Drop)
-function setupBatchDropEvents(el) {
-    el.addEventListener('dragover', (e) => {
-        e.preventDefault(); // Bắt buộc phải có để cho phép thả
-        el.classList.add('drag-over');
-    });
-
-    el.addEventListener('dragleave', () => {
-        el.classList.remove('drag-over');
-    });
-
-    el.addEventListener('drop', (e) => {
-        e.preventDefault();
-        el.classList.remove('drag-over');
-        
-        // Lấy ID của account từ dataTransfer (được set lúc bắt đầu kéo account)
-        const accId = e.dataTransfer.getData('text/plain');
-        const batchId = el.dataset.batchId;
-
-        assignAccToBatch(accId, batchId);
-    });
-}
-
-// 5. Gán tài khoản vào lô
-function assignAccToBatch(accId, batchId) {
-    const accIndex = allAccounts.findIndex(acc => acc.id == accId);
-    if (accIndex > -1) {
-        allAccounts[accIndex].batchId = batchId;
-        saveData(); // Hàm lưu account cũ của bạn
-        renderAccountGrid(); // Render lại danh sách acc chính
-        renderBatches(); // Render lại danh sách lô để cập nhật số lượng
-    }
-}
-
-// 6. Xóa lô
-function deleteBatch(batchId) {
-    if (confirm('Bạn có chắc muốn xóa lô này? (Các tài khoản sẽ không bị xóa)')) {
-        // Reset batchId của các acc thuộc lô này
-        allAccounts.forEach(acc => {
-            if (acc.batchId === batchId) delete acc.batchId;
-        });
-        batches = batches.filter(b => b.id !== batchId);
-        saveBatches();
-        saveData();
-        renderBatches();
-        renderAccountGrid();
-    }
-}
 let initialAccountFormData = null; 
 let initialPlatformFormData = null;
 let currentEditingModalElement = null; // Theo dõi modal hiện tại (accountModal hoặc platformModal)
@@ -438,10 +347,13 @@ function createAccountCard(acc, idx, platMeta, platformName) {
     card.setAttribute('draggable', 'true');
     card.dataset.accountId = acc.id;
     card.dataset.idx = idx;
-    card.dataset.platform = platformName; // Gán nền tảng gốc của thẻ
+    card.dataset.platform = platformName;
 
     // Màu nền gradient
     card.style.background = `linear-gradient(135deg, ${platMeta.color}, ${shadeColor(platMeta.color, -20)})`;
+
+    // Kiểm tra xem acc có thuộc lô nào không để hiển thị Tag
+    const batchName = acc.batchId ? getBatchName(acc.batchId) : null;
 
     card.innerHTML = `
         <div class="head">
@@ -450,7 +362,10 @@ function createAccountCard(acc, idx, platMeta, platformName) {
                     ${platMeta.icon ? `<img src="${escapeHtml(platMeta.icon)}"/>` : platformName[0].toUpperCase()}
                 </div>
                 <div>
-                    <h4>${escapeHtml(acc.name)}</h4>
+                    <h4 style="display: flex; align-items: center; gap: 8px;">
+                        ${escapeHtml(acc.name)}
+                        ${batchName ? `<span class="batch-tag-mini" style="background: rgba(255,255,255,0.2); font-size: 10px; padding: 2px 6px; border-radius: 4px;">📦 ${batchName}</span>` : ''}
+                    </h4>
                     <p class="muted">${escapeHtml(acc.mail)}</p>
                 </div>
             </div>
@@ -478,36 +393,139 @@ function createAccountCard(acc, idx, platMeta, platformName) {
         </div>
     `;
 
-    // Thêm sự kiện cho nút Sửa/Xóa
+    // Sự kiện Sửa/Xóa
     card.querySelector('[data-action="edit"]').addEventListener("click", (e) => {
         e.stopPropagation(); openEditAccount(idx);
     });
     card.querySelector('[data-action="del"]').addEventListener("click", (e) => {
-        e.stopPropagation(); removeAccount(platformName, idx); // Sửa: Dùng platformName
+        e.stopPropagation(); removeAccount(platformName, idx);
     });
 
-    // START: THÊM SỰ KIỆN CHO NÚT VÙNG NUÔI MỚI (Click)
+    // Sự kiện Vùng Nuôi
     const nurtureBtn = card.querySelector('[data-action="nurture"]');
     if (nurtureBtn) {
         nurtureBtn.addEventListener('click', (e) => {
             e.stopPropagation();
-            // Lấy ID tài khoản từ card
-            const accountId = e.currentTarget.closest('.account-card').dataset.accountId;
-            // Cập nhật trạng thái
+            const accountId = card.dataset.accountId;
             if (updateAccountNurtureStatus(platformName, accountId, true)) {
-                renderAccounts(); // Re-render lưới chính
+                renderAccounts();
                 updateNurtureCount();
             }
         });
     }
-    // END: THÊM SỰ KIỆN CHO NÚT VÙNG NUÔI MỚI
 
-    // THÊM SỰ KIỆN KÉO THẢ (Chỉ cần thêm 1 lần khi tạo thẻ)
-    addDragEvents(card);
-    
+    // Sự kiện Kéo thả (Tích hợp logic gửi ID tài khoản)
+    card.addEventListener('dragstart', (e) => {
+        e.dataTransfer.setData('text/plain', acc.id);
+        e.dataTransfer.effectAllowed = "move";
+        card.classList.add('dragging');
+    });
+
+    card.addEventListener('dragend', () => {
+        card.classList.remove('dragging');
+    });
+
     return card;
 }
 
+// Hàm bổ trợ lấy tên Lô theo ID
+function getBatchName(batchId) {
+    const found = batches.find(b => b.id === batchId);
+    if (!found) return "";
+    const index = batches.indexOf(found);
+    return `Lô ${index + 1}`;
+}
+// 1. Tạo lô mới
+document.getElementById('createNewBatchBtn').addEventListener('click', () => {
+    const newBatch = {
+        id: 'batch_' + Date.now(),
+        name: `Lô ${batches.length + 1}`
+    };
+    batches.push(newBatch);
+    saveBatches();
+    renderBatches();
+});
+
+// 2. Render danh sách lô ra vùng chứa
+function renderBatches() {
+    const container = document.getElementById('batchContainer');
+    if (!container) return;
+    container.innerHTML = '';
+
+    // Tạo mảng phẳng tất cả acc để đếm số lượng trong lô
+    const allAccs = Object.values(data).flat();
+
+    batches.forEach((batch, index) => {
+        const count = allAccs.filter(acc => acc.batchId === batch.id).length;
+
+        const batchElement = document.createElement('div');
+        batchElement.className = 'batch-item dropzone';
+        batchElement.dataset.batchId = batch.id;
+        batchElement.innerHTML = `
+            <button class="btn-delete-batch" onclick="deleteBatch('${batch.id}')">×</button>
+            <div class="batch-title">Lô ${index + 1}</div>
+            <div class="batch-count">${count} tài khoản</div>
+        `;
+
+        // Lắng nghe sự kiện drop cho từng ô Lô
+        batchElement.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            batchElement.classList.add('drag-over');
+        });
+
+        batchElement.addEventListener('dragleave', () => {
+            batchElement.classList.remove('drag-over');
+        });
+
+        batchElement.addEventListener('drop', (e) => {
+            e.preventDefault();
+            batchElement.classList.remove('drag-over');
+            const accId = e.dataTransfer.getData('text/plain');
+            assignAccToBatch(accId, batchElement.dataset.batchId);
+        });
+
+        container.appendChild(batchElement);
+    });
+}
+
+// 3. Gán tài khoản vào lô và lưu
+function assignAccToBatch(accId, batchId) {
+    let changed = false;
+    for (const plat in data) {
+        const acc = data[plat].find(a => a.id === accId);
+        if (acc) {
+            acc.batchId = batchId;
+            changed = true;
+            break;
+        }
+    }
+    if (changed) {
+        saveState(); // Lưu vào localStorage
+        renderAccounts(); // Vẽ lại lưới chính
+        renderBatches(); // Vẽ lại các lô
+        if (typeof pushToGitHub === "function") pushToGitHub(); // Tự động sync nếu có
+    }
+}
+
+// 4. Xóa Lô
+function deleteBatch(batchId) {
+    if (confirm('Xóa lô này? (Tài khoản sẽ được đưa về trạng thái tự do)')) {
+        for (const plat in data) {
+            data[plat].forEach(acc => {
+                if (acc.batchId === batchId) delete acc.batchId;
+            });
+        }
+        batches = batches.filter(b => b.id !== batchId);
+        saveBatches();
+        saveState();
+        renderAccounts();
+        renderBatches();
+    }
+}
+
+function saveBatches() {
+    localStorage.setItem('batches', JSON.stringify(batches));
+}
 // Cập nhật Icon Nurture Area (hiện số lượng)
 function updateNurtureIcon(count) {
     if (nurtureIcon) {
@@ -914,7 +932,7 @@ window.addEventListener("DOMContentLoaded", () => {
     loadState(); // Đảm bảo đã load state trước khi render/update
     renderPlatforms();
     updateNurtureCount(); 
-
+    renderBatches();
     // --- SỰ KIỆN DROP CHO ACCOUNT GRID (Thoát khỏi Vùng Nuôi) ---
     if (accountGrid) {
         accountGrid.addEventListener('dragover', (e) => {
