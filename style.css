@@ -901,70 +901,120 @@ body {
         font-size: 1rem;
     }
 }
-/* Layout cho vùng chứa Lô */
-.batch-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 15px;
-    margin-top: 10px;
-}
 
-/* Thẻ Lô */
-.batch-item {
-    background: var(--card-bg, #ffffff);
-    border: 2px dashed #cbd5e1;
-    border-radius: 12px;
-    padding: 15px;
-    min-height: 100px;
-    transition: all 0.3s ease;
+/* --- Container Lô --- */
+#batchContainer {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    cursor: default;
+    gap: 15px;
+    padding: 10px 0;
 }
 
-/* Hiệu ứng khi kéo acc đè lên Lô */
+/* --- Thân Lô màu đen --- */
+.batch-item {
+    background: #111827; /* Màu đen xanh (Slate 900) */
+    border: 1px solid #1f2937; /* Viền xám đậm */
+    border-radius: 14px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Hiệu ứng khi kéo tài khoản vào --- */
 .batch-item.drag-over {
-    border-color: #3b82f6;
-    background: rgba(59, 130, 246, 0.05);
+    border: 2px dashed #3b82f6;
+    background: #1e293b; /* Nhạt hơn một chút khi kéo vào */
     transform: scale(1.02);
 }
 
-.batch-title {
-    font-weight: 600;
-    color: #334155;
-    margin-bottom: 5px;
-}
-
-.batch-count {
-    font-size: 0.85rem;
-    color: #64748b;
-}
-
-.btn-delete-batch {
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    background: transparent;
-    border: none;
-    color: #ef4444;
+/* --- Tiêu đề Lô --- */
+.batch-header {
+    padding: 14px 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     cursor: pointer;
-    opacity: 0.5;
+    background: rgba(255, 255, 255, 0.02); /* Phủ một lớp trắng mờ cực mỏng */
+    user-select: none;
 }
 
-.btn-delete-batch:hover {
-    opacity: 1;
+.batch-header:hover {
+    background: rgba(255, 255, 255, 0.05);
 }
 
-/* Style cho account khi đang bị kéo */
-.account-card.dragging {
-    opacity: 0.5;
-    transform: scale(0.95);
+.batch-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
-.batch-tag-mini {
-    color: white;
-    background: rgba(0, 0, 0, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.3);
+
+/* Mũi tên và chữ */
+.arrow-icon {
+    font-size: 10px;
+    color: #64748b;
+    transition: transform 0.3s ease;
+}
+
+.batch-item:not(.collapsed) .arrow-icon {
+    transform: rotate(90deg);
+}
+
+.batch-name { 
+    font-weight: 600; 
+    color: #f8fafc; /* Chữ trắng nhạt */
+}
+
+.batch-count { 
+    font-size: 11px; 
+    color: #3b82f6; 
+    background: rgba(59, 130, 246, 0.1); 
+    padding: 2px 10px; 
+    border-radius: 20px;
+    border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+/* --- Vùng chứa tài khoản bên trong --- */
+.batch-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 12px;
+    padding: 18px;
+    background: #0b0f1a; /* Đen sâu hơn phần header */
+    border-top: 1px solid #1f2937;
+}
+
+/* Khi đóng lô */
+.batch-item.collapsed .batch-content {
+    display: none;
+}
+
+/* Nút xóa lô */
+.btn-del-batch {
+    border: none;
+    background: transparent;
+    color: #4b5563;
+    cursor: pointer;
+    padding: 6px;
+    transition: all 0.2s;
+}
+
+.btn-del-batch:hover { 
+    color: #ef4444; 
+    transform: scale(1.2);
+}
+
+/* Tin nhắn khi lô trống */
+.empty-msg {
+    grid-column: 1/-1;
+    text-align: center;
+    color: #4b5563;
+    font-size: 12px;
+    padding: 20px;
+    border: 1px dashed #1f2937;
+    border-radius: 10px;
+}
+
+/* Tùy chỉnh nhẹ cho Card Account khi nằm trong Lô đen */
+.batch-content .account-card {
+    border: 1px solid rgba(255,255,255,0.05) !important;
 }
