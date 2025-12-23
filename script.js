@@ -1215,81 +1215,159 @@ document.addEventListener("click", async(e)=>{
 // 10. Random Generators & External API
 // =========================================================================
 
-// Tên ngẫu nhiên
-// ✅ Tên Đa Dạng (Anh, Việt, ... và giữ lại logic cũ)
 (() => {
-    const genBtn = document.getElementById("genNameBtn");
-    if (!genBtn) return;
+  const genBtn = document.getElementById("genNameBtn");
+  if (!genBtn) return;
 
-    // --- Logic Tên Việt (Giữ nguyên cho việc tạo tên ngẫu nhiên Việt Nam) ---
-    const list_ten = {
-        first: ['Nguyễn', 'Trần', 'Lê', 'Phạm', 'Hoàng', 'Huỳnh', 'Phan', 'Vũ', 'Võ', 'Đặng', 'Bùi', 'Đỗ', 'Hồ', 'Ngô', 'Dương', 'Mai', 'Tạ', 'Đoàn', 'Cao', 'Trương', 'Đinh', 'Lý', 'Châu', 'Vương', 'Đào'],
-        mid: ['Văn', 'Thị', 'Minh', 'Thanh', 'Quốc', 'Tuấn', 'Đức', 'Hồng', 'Hải', 'Xuân', 'Kim', 'Bảo', 'Gia', 'Nhật', 'Thái', 'Ngọc', 'Anh', 'Hoàng', 'Khánh', 'Phương', 'Thiên', 'Trung', 'Hữu', 'Diệu', 'Tường', 'Anh', 'Thảo', 'Như', 'Cẩm', 'Hà'],
-        last_male: ['Anh', 'An', 'Bảo', 'Bình', 'Dũng', 'Huy', 'Khánh', 'Long', 'Phúc', 'Quang', 'Sơn', 'Tùng', 'Vinh', 'Đạt', 'Trung', 'Khang', 'Nam', 'Phong', 'Hiếu', 'Thắng', 'Tuấn'],
-        last_female: ['Linh', 'Ngọc', 'Trang', 'Hương', 'Thảo', 'Yến', 'Như', 'Vy', 'Mai', 'Châu', 'Lan', 'Nhi', 'Phương', 'Hà', 'My', 'Hằng', 'Diễm', 'Giang', 'Tuyết', 'Thư', 'Ngân']
-    };
-    function genRandomVietName(rand, usedNames) {
-        const isMale = Math.random() < 0.5;
-        const lastList = isMale ? list_ten.last_male : list_ten.last_female;
-        let fullName, tries = 0;
-        do {
-            const first = rand(list_ten.first);
-            const midCount = Math.random() < 0.5 ? 1 : 2;
-            const mids = [];
-            for (let i = 0; i < midCount; i++) mids.push(rand(list_ten.mid));
-            const last = rand(lastList);
-            const nameParts = [first, ...mids, last];
-            fullName = nameParts.join(" ");
-            tries++;
-        } while (usedNames.has(fullName) && tries < 50);
-        return fullName;
+  /* ================== HELPER ================== */
+  const rand = arr => arr[Math.floor(Math.random() * arr.length)];
+  const usedNames = new Set();
+
+  /* ================== TÊN VIỆT ================== */
+  const list_ten = {
+    first: ['Nguyễn','Trần','Lê','Phạm','Hoàng','Huỳnh','Phan','Vũ','Võ','Đặng','Bùi','Đỗ','Hồ','Ngô','Dương','Mai','Tạ','Đoàn','Cao','Trương','Đinh','Lý','Châu','Vương','Đào'],
+    mid: ['Văn','Thị','Minh','Thanh','Quốc','Tuấn','Đức','Hồng','Hải','Xuân','Kim','Bảo','Gia','Nhật','Thái','Ngọc','Anh','Hoàng','Khánh','Phương','Thiên','Trung','Hữu','Diệu','Tường','Thảo','Như','Cẩm','Hà'],
+    last_male: ['Anh','An','Bảo','Bình','Dũng','Huy','Khánh','Long','Phúc','Quang','Sơn','Tùng','Vinh','Đạt','Trung','Khang','Nam','Phong','Hiếu','Thắng','Tuấn'],
+    last_female: ['Linh','Ngọc','Trang','Hương','Thảo','Yến','Như','Vy','Mai','Châu','Lan','Nhi','Phương','Hà','My','Hằng','Diễm','Giang','Tuyết','Thư','Ngân']
+  };
+
+  function genRandomVietName() {
+    const isMale = Math.random() < 0.5;
+    const lastList = isMale ? list_ten.last_male : list_ten.last_female;
+    let fullName, tries = 0;
+
+    do {
+      const ho = rand(list_ten.first);
+      const midCount = Math.random() < 0.5 ? 1 : 2;
+      const mids = Array.from({ length: midCount }, () => rand(list_ten.mid));
+      const ten = rand(lastList);
+      fullName = [ho, ...mids, ten].join(" ");
+      tries++;
+    } while (usedNames.has(fullName) && tries < 50);
+
+    return fullName;
+  }
+
+  /* ================== TÊN QUỐC TẾ ================== */
+  const foreignNames = {
+    english: {
+      first: [
+        'David','Michael','John','James','William','Daniel','Thomas','Robert',
+        'Andrew','Christopher','Matthew','Anthony','Joseph','Ryan','Nicholas',
+        'Kevin','Brandon','Justin','Eric','Jonathan','Adam','Kyle','Jason',
+        'Brian','Steven','Timothy','Aaron','Sean','Zachary','Ethan','Logan'
+      ],
+      last: [
+        'Smith','Johnson','Williams','Brown','Jones','Garcia','Miller','Davis',
+        'Rodriguez','Martinez','Hernandez','Lopez','Gonzalez','Wilson','Anderson',
+        'Thomas','Taylor','Moore','Jackson','Martin','Lee','Perez','Thompson',
+        'White','Harris','Sanchez','Clark','Ramirez','Lewis','Robinson',
+        'Walker','Young','Allen','King','Wright','Scott','Torres','Nguyen'
+      ]
+    },
+    korean: {
+      last: ['Kim', 'Lee', 'Park', 'Choi', 'Jung', 'Kang', 'Cho', 'Yoon', 'Jang', 'Lim', 'Han', 'Oh'],
+      first: [
+        'Min', 'Jae', 'Hyun', 'Seo', 'Ji', 'Young', // Gốc của bạn
+        'Hoon', 'Woo', 'Joon', 'Ah', 'Yoon', 'Sua',  // Thêm âm tiết hiện đại
+        'Ha', 'Eun', 'Seung', 'Dae', 'Sung', 'Bo',   // Thêm âm tiết mạnh mẽ/truyền thống
+        'Yeon', 'Chae', 'Kyung', 'Hee', 'Jin', 'Beom'
+      ]
+    },
+    japanese: {
+      last: [
+        'Sato', 'Suzuki', 'Tanaka', 'Takahashi', // Gốc của bạn
+        'Watanabe', 'Ito', 'Yamamoto', 'Nakamura', 'Kobayashi', 'Kato', 
+        'Yoshida', 'Yamada', 'Sasaki', 'Yamaguchi', 'Saito'
+      ],
+      
+      first: [
+        'Haruto', 'Yuki', 'Sora', 'Ren', 'Takumi', 'Riku', // Gốc của bạn
+        'Hiroto', 'Yuto', 'Hinata', 'Itsuki', 'Kaito',    // Xu hướng hiện đại
+        'Sakura', 'Hana', 'Mei', 'Aoi', 'Hina',           // Tên nữ phổ biến
+        'Kenta', 'Shotaro', 'Daiki', 'Kenji',             // Phong cách cổ điển
+        'Akira', 'Haru', 'Mizuki'                         // Tên trung tính (Unisex)
+      ]
+    },
+    chinese: {
+      // 10 họ phổ biến nhất (Bách Gia Tính)
+      last: [
+        'Wang', 'Li', 'Zhang', 'Liu', 'Chen', // Gốc của bạn
+        'Yang', 'Huang', 'Zhao', 'Wu', 'Zhou', 'Xu', 'Sun', 'Ma', 'Zhu', 'Hu'
+      ],
+      
+      // Các âm tiết để ghép thành tên (thường ghép 2 âm với nhau)
+      first: [
+        'Wei', 'Jun', 'Ming', 'Hao', 'Lei', 'Feng', // Gốc của bạn
+        'Zi', 'Han', 'Yu', 'Xuan', 'Yi', 'Yue',    // Xu hướng hiện đại (Gen Z)
+        'Zhi', 'Jia', 'Ru', 'Shi', 'Yan', 'Lin',   // Thanh lịch, trí tuệ
+        'Chen', 'Bo', 'Wen', 'Tian', 'An', 'Mei'    // Truyền thống và ý nghĩa
+      ]
+    },
+    indian: {
+      last: [
+        'Singh', 'Sharma', 'Patel', 'Gupta', 'Kumar', // Gốc của bạn
+        'Verma', 'Reddy', 'Iyer', 'Khan', 'Joshi', 
+        'Nair', 'Kulkarni', 'Chatterjee', 'Mehta', 'Malhotra'
+      ],
+      
+      first: [
+        'Amit', 'Raj', 'Arjun', 'Rohit', 'Vikram', 'Anil', // Gốc của bạn
+        'Aarav', 'Ishaan', 'Vihaan', 'Aditya', 'Siddharth', // Nam hiện đại
+        'Ananya', 'Diya', 'Ishani', 'Myra', 'Saanvi',       // Nữ hiện đại
+        'Priyanka', 'Deepika', 'Lakshmi', 'Rohan', 'Rahul', // Phổ biến mọi thời đại
+        'Karthik', 'Arvind', 'Sai', 'Pranav'                // Phổ biến ở miền Nam
+      ]
     }
+  };
 
-    // --- Logic Tên Anh/Quốc Tế Mới ---
-    const englishNames = {
-        male: ['Liam', 'Noah', 'Oliver', 'Elijah', 'William', 'James', 'Benjamin', 'Lucas', 'Henry', 'Alexander'],
-        female: ['Emma', 'Olivia', 'Ava', 'Isabella', 'Sophia', 'Charlotte', 'Amelia', 'Mia', 'Harper', 'Evelyn'],
-        surnames: ['Smith', 'Johnson', 'Williams', 'Brown', 'Jones', 'Garcia', 'Miller', 'Davis', 'Rodriguez', 'Martinez']
-    };
-    function genRandomEnglishName(rand, usedNames) {
-        const isMale = Math.random() < 0.5;
-        const firstList = isMale ? englishNames.male : englishNames.female;
-        let fullName, tries = 0;
-        do {
-            const first = rand(firstList);
-            const last = rand(englishNames.surnames);
-            fullName = `${first} ${last}`;
-            tries++;
-        } while (usedNames.has(fullName) && tries < 50);
-        return fullName;
-    }
-    // --- Hàm Tổng Hợp Tạo Tên ---
-    const rand = arr => arr[Math.floor(Math.random() * arr.length)];
-    let usedNames = new Set();
-    function genRandomName() {
-        // 70% tên Việt, 30% tên Anh/Quốc tế
-        const nameType = Math.random() < 0.7 ? 'viet' : 'english';
-        let newName;
+  function genRandomForeignName() {
+    const pool = rand(Object.values(foreignNames));
+    return `${rand(pool.first)} ${rand(pool.last)}`;
+  }
 
-        if (nameType === 'viet') {
-            newName = genRandomVietName(rand, usedNames);
-        } else {
-            newName = genRandomEnglishName(rand, usedNames);
-        }
+  /* ================== TÊN KẾT HỢP ================== */
+  function genMixedName() {
+    let fullName, tries = 0;
 
-        usedNames.add(newName);
-        return newName;
-    }
+    do {
+      const type = Math.random();
 
-    genBtn.addEventListener("click", () => {
-        const input = document.getElementById("acc_name");
-        if (!input) return;
-        const ten = genRandomName();
-        input.value = ten;
-        input.style.transition = "background 0.3s";
-        input.style.background = "#d1fae5";
-        setTimeout(() => (input.style.background = ""), 400);
-    });
+      // 30% thuần Việt
+      if (type < 0.3) {
+        fullName = genRandomVietName();
+      }
+      // 30% thuần quốc tế
+      else if (type < 0.6) {
+        fullName = genRandomForeignName();
+      }
+      // 40% kết hợp: Tây / Á + Việt
+      else {
+        const foreign = rand(Object.values(foreignNames));
+        const hoViet = rand(list_ten.first);
+        const tenViet = rand([...list_ten.last_male, ...list_ten.last_female]);
+        fullName = `${rand(foreign.first)} ${hoViet} ${tenViet}`;
+        // Ví dụ: David Nguyễn Anh
+      }
+
+      tries++;
+    } while (usedNames.has(fullName) && tries < 50);
+
+    usedNames.add(fullName);
+    return fullName;
+  }
+
+  /* ================== EVENT ================== */
+  genBtn.addEventListener("click", () => {
+    const input = document.getElementById("acc_name");
+    if (!input) return;
+
+    input.value = genMixedName();
+    input.style.transition = "background 0.3s";
+    input.style.background = "#d1fae5";
+    setTimeout(() => (input.style.background = ""), 400);
+  });
+
 })();
 
 // ✅ Mật Khẩu Ngẫu Nhiên Đa Dạng/Mạnh hơn
