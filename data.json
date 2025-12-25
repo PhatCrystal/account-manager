@@ -110,7 +110,7 @@
         "2fa": "KDXB D2LM YROX BR43 MR4I NT5D JLZ5 HKVT",
         "id": "mil7zweswxbo740thy",
         "isNurtured": false,
-        "batchId": "batch_1766158332789"
+        "batchId": "batch_1766157675051"
       },
       {
         "name": "quochangdinh",
@@ -128,7 +128,7 @@
         "2fa": "4ODJ IJOU YV5W 5Q7X URDO X6PE FBMK 2LAF",
         "id": "mimkadicu3wkvgpbzz",
         "isNurtured": false,
-        "batchId": "batch_1766158332789"
+        "batchId": "batch_1766157675051"
       },
       {
         "name": "goat.7657040",
@@ -137,7 +137,7 @@
         "2fa": "6W4S FAMP KIKM PFDQ 7T6I 245D 26FJ NXM6",
         "id": "mimkkr3c17r62h1bgn9j",
         "isNurtured": false,
-        "batchId": "batch_1766158332789"
+        "batchId": "batch_1766157675051"
       },
       {
         "name": "vonhat3955",
@@ -146,7 +146,7 @@
         "2fa": "YKUR SZ5X AQL7 ZAIL RWKR WVIP DRXY A7QG",
         "id": "miri7ej41jdt32maxdc",
         "isNurtured": false,
-        "batchId": "batch_1766158332789"
+        "batchId": "batch_1766157675051"
       },
       {
         "name": "dieutrangly",
@@ -155,7 +155,7 @@
         "2fa": "OVNU PQPK M5SY U2N2 H4DT ACLF RJLR YZTM",
         "id": "mj05b938vinixbbkjj",
         "isNurtured": false,
-        "batchId": "batch_1766158332789"
+        "batchId": "batch_1766157675051"
       },
       {
         "name": "doantuan274",
@@ -164,7 +164,7 @@
         "2fa": "JQ23 CXCW 5CS3 CIWN Q7NQ B5PI SLC7 QM3S",
         "id": "mj1kcvtp3i6rog46oym",
         "isNurtured": false,
-        "batchId": "batch_1766158332789"
+        "batchId": "batch_1766157675051"
       },
       {
         "name": "owl.8702888",
@@ -173,7 +173,7 @@
         "2fa": "PCYA E3HO VHPK EQFF 6CU4 JGZA PPGS DMZ3",
         "id": "mj1kjpwi8v92hghtcx8",
         "isNurtured": false,
-        "batchId": "batch_1766158332789"
+        "batchId": "batch_1766157675051"
       },
       {
         "name": "bloxfruit330",
@@ -182,7 +182,7 @@
         "2fa": "KPFC PG67 XC4I OXAX H2U7 G46S DT76 IRJT",
         "id": "mj2b6fs7umrfz83ax7d",
         "isNurtured": false,
-        "batchId": "batch_1766158359590"
+        "batchId": "batch_1766157675051"
       },
       {
         "name": "ngoth_ienvy",
@@ -191,7 +191,7 @@
         "2fa": "7A7S 2PNU UCHR ZTHU NKIU 6VXC EQHT AHNT",
         "id": "mj3va1qztp1gwama8c",
         "isNurtured": false,
-        "batchId": "batch_1766158359590"
+        "batchId": "batch_1766157675051"
       },
       {
         "name": "phananh.yen",
@@ -200,16 +200,7 @@
         "2fa": "BGNF DMC4 GQNR SVH6 PIZW QNLC AJ5V ZLVH",
         "id": "mj9f7g4n83i7w3s42l3",
         "isNurtured": false,
-        "batchId": "batch_1766158359590"
-      },
-      {
-        "name": "doanhonggia",
-        "mail": "taeyang2484@denocloudmail.store",
-        "mk": "xH%(H{t?=2|5eVIG",
-        "2fa": "FPSQ JT4P 4LFG CPPS OI3R SLJM A2K6 Z3ZF",
-        "id": "mj9w8guoadb4nsqufn",
-        "isNurtured": false,
-        "batchId": "batch_1766158359590"
+        "batchId": "batch_1766157675051"
       },
       {
         "name": "doancam.ha",
@@ -353,8 +344,7 @@
         "mk": "PAbc123!",
         "2fa": "",
         "id": "mjk34a0uzzmm817ynb",
-        "isNurtured": true,
-        "batchId": "batch_1766158332789"
+        "isNurtured": true
       }
     ],
     "Facebook": [
