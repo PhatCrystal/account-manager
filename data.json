@@ -104,15 +104,6 @@
         "isNurtured": false
       },
       {
-        "name": "phamquocbao316",
-        "mail": "h0wueza18k@hathitrannhien.edu.vn",
-        "mk": "v@hGt2_D7[*tVM",
-        "2fa": "H43B EA56 JZMF SY7H IXET ZZIQ 7EJC JWHC",
-        "id": "mib5etlrg547poq68wu",
-        "isNurtured": false,
-        "batchId": "batch_1766157675051"
-      },
-      {
         "name": "tuanngoc8280",
         "mail": "truongtuanngoc@mailngon.top",
         "mk": "<5y*!bYUOg~XL1",
@@ -371,7 +362,8 @@
         "mk": "PAbc123!",
         "2fa": "",
         "id": "mjk34a0uzzmm817ynb",
-        "isNurtured": false
+        "isNurtured": false,
+        "batchId": "batch_1766158332789"
       }
     ],
     "Facebook": [
