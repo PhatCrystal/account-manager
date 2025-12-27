@@ -191,7 +191,7 @@
         "2fa": "BP7H ZEHI RYQE OWZF EH7K G6PX LHSP 5RLA",
         "id": "mjflnuojbkxm8z46dhm",
         "isNurtured": false,
-        "batchId": "batch_1766222287412"
+        "batchId": "batch_1766809974609"
       },
       {
         "name": "alexander689691",
@@ -200,7 +200,7 @@
         "2fa": "26WV PTLX VY6E JQJA KJPQ 6KWR GSEL QVFA",
         "id": "mjgloet9owfo1nidjj",
         "isNurtured": false,
-        "batchId": "batch_1766222287412"
+        "batchId": "batch_1766809974609"
       },
       {
         "name": "oliver718804",
@@ -209,7 +209,7 @@
         "2fa": "PFY2 YPG5 HC5U OH4K GLXN PF23 7FAM AXEY",
         "id": "mjgm5t70js8b3bzmd6",
         "isNurtured": false,
-        "batchId": "batch_1766222287412"
+        "batchId": "batch_1766809974609"
       },
       {
         "name": "emma440168",
@@ -218,7 +218,7 @@
         "2fa": "DB6K 6SUG FJOY YHAH GJ6U NDO7 QOQ3 FTMQ",
         "id": "mjgmhevzbe9zuvinh1",
         "isNurtured": false,
-        "batchId": "batch_1766222287412"
+        "batchId": "batch_1766809974609"
       },
       {
         "name": "caotuannhu",
@@ -227,7 +227,7 @@
         "2fa": "NTZC WBZ6 CDHH WLNH 5UM4 I2VY Y5UO CWXT",
         "id": "mjgne61y33olsiwousy",
         "isNurtured": false,
-        "batchId": "batch_1766222287412"
+        "batchId": "batch_1766809974609"
       },
       {
         "name": "harutohuynh",
@@ -235,7 +235,8 @@
         "mk": ".zeou5PuIm0lER@#",
         "2fa": "5QYO WLKA EAEQ W4A4 6PHP R7FB KGOQ V3FS",
         "id": "mjjww44nwtk9iht1cdf",
-        "isNurtured": true
+        "isNurtured": false,
+        "batchId": "batch_1766809974609"
       },
       {
         "name": "lintavy",
@@ -243,7 +244,8 @@
         "mk": "y2H0{EX+/RB,SyR~",
         "2fa": "A2PR JR42 MJTA LNOX RMXX EGV6 OYA2 LRIQ",
         "id": "mjjx6ux79j7yyjte1hk",
-        "isNurtured": true
+        "isNurtured": false,
+        "batchId": "batch_1766809974609"
       },
       {
         "name": "sora581256",
@@ -251,7 +253,8 @@
         "mk": "F`+Ad!dJ(Hbu5ph1",
         "2fa": "PSCU QJWG HRGW ZLZX XQN3 BMLX AZED 2QDV",
         "id": "mjjzlvf1dt5ex7z7va9",
-        "isNurtured": true
+        "isNurtured": false,
+        "batchId": "batch_1766809974609"
       },
       {
         "name": "anil371092",
@@ -259,7 +262,8 @@
         "mk": "|9m-3VSr]Gq?YGO-",
         "2fa": "HPDG TC75 7MQW LCDI B523 TFX3 3DKA K3X3",
         "id": "mjjztsc9vydxs4jzo8c",
-        "isNurtured": true
+        "isNurtured": false,
+        "batchId": "batch_1766809974609"
       },
       {
         "name": "ferrina6677",
@@ -275,7 +279,16 @@
         "mk": ",7!Y/VpsCmc@Q:x(",
         "2fa": "CQZZ TKAI QJK4 TY3W 3JY6 KS3X U7QY WMS6",
         "id": "mjljef9ck7ozmnhn0hk",
-        "isNurtured": true
+        "isNurtured": false,
+        "batchId": "batch_1766809974609"
+      },
+      {
+        "name": "akirachauanh",
+        "mail": "EsmaMadden8g5c7@ccsch.us",
+        "mk": "W98IuT>-d[Yp)Pt%",
+        "2fa": "I3AR 54FX WSBF EPT5 DJUY IZJW NIXP I3ER",
+        "id": "mjocbq36ppxfbhkh6o",
+        "isNurtured": false
       }
     ],
     "Facebook": [
