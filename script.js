@@ -355,7 +355,7 @@ function renderAccounts() {
         if (acc.isNurtured) {
             nurtureGrid.appendChild(card);
             countNurture++;
-        } else if (!acc.batchId) {
+        } else {
             freeGrid.appendChild(card);
             countFree++;
         }
@@ -366,8 +366,6 @@ function renderAccounts() {
     if(document.getElementById('count-free')) document.getElementById('count-free').innerText = countFree;
     if(document.getElementById('count-nurture')) document.getElementById('count-nurture').innerText = countNurture;
 
-    // Gọi các hàm render phụ
-    renderBatches();
     renderNameListUI(names, nameListBox);
     if (typeof updateNurtureCount === "function") updateNurtureCount();
 }
