@@ -510,7 +510,8 @@
         "id": "mk6zw9fxu6ft9e7k81j",
         "isNurtured": false
       }
-    ]
+    ],
+    "Linked In": []
   },
   "platforms": {
     "Instagram": {
@@ -544,6 +545,10 @@
     "Discord": {
       "icon": "",
       "color": "#8c00ff"
+    },
+    "Linked In": {
+      "icon": "",
+      "color": "#3b82f6"
     }
   }
 }
