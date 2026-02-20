@@ -263,14 +263,6 @@
         "2fa": "EV2C IBXC V4PM WMJP 3YZB 7N6U X5QH CA7W",
         "id": "mkl1w1dboly2gatwugj",
         "isNurtured": true
-      },
-      {
-        "name": "vuhaihonghang",
-        "mail": "5wqughlpx6@nghienplus.io.vn",
-        "mk": "E{zx|DU9Nq5FT&YK",
-        "2fa": "",
-        "id": "mlrt6ngbjl8vd4t6wso",
-        "isNurtured": false
       }
     ],
     "Facebook": [
@@ -480,7 +472,8 @@
         "id": "mljkcryapneqbie986m",
         "isNurtured": false
       }
-    ]
+    ],
+    "Garena": []
   },
   "platforms": {
     "Instagram": {
@@ -518,6 +511,10 @@
     "Linked In": {
       "icon": "",
       "color": "#3b82f6"
+    },
+    "Garena": {
+      "icon": "",
+      "color": "#ff0000"
     }
   }
 }
