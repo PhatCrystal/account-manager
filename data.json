@@ -490,7 +490,8 @@
         "id": "mluqoqiri4pt5d5673",
         "isNurtured": false
       }
-    ]
+    ],
+    "Outlook": []
   },
   "platforms": {
     "Instagram": {
@@ -532,6 +533,10 @@
     "Garena": {
       "icon": "",
       "color": "#ff0000"
+    },
+    "Outlook": {
+      "icon": "",
+      "color": "#0062ff"
     }
   }
 }
