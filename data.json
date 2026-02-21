@@ -491,7 +491,16 @@
         "isNurtured": false
       }
     ],
-    "Outlook": []
+    "Outlook": [
+      {
+        "name": "Huyền Vũ",
+        "mail": "huyenvu181@outlook.com.vn",
+        "mk": "ILoveu@6789",
+        "2fa": "",
+        "id": "mlw0a2uvpie07iqfd5",
+        "isNurtured": false
+      }
+    ]
   },
   "platforms": {
     "Instagram": {
