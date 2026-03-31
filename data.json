@@ -58,7 +58,7 @@
         "2fa": "D7PJ PBLW B7RU QMGR 74P6 VAMW E266 MBGG",
         "id": "mib5etlaa2wksmvb1p8",
         "batchId": "batch_1766157675051",
-        "isNurtured": false
+        "isNurtured": true
       },
       {
         "name": "dinosaur.7693248",
@@ -336,30 +336,6 @@
         "mk": "PAbc123!",
         "2fa": "LWSK7ZBZJNPTNCKLPNAOHMTQGGKAICGW",
         "id": "mib5en1iwkomsakzusg"
-      },
-      {
-        "name": "Phồ Thanh Đụng",
-        "mail": "huyenvu181@outlook.com.vn",
-        "mk": "None",
-        "2fa": "",
-        "id": "mn7luwuab4kaixfgv1r",
-        "isNurtured": false
-      },
-      {
-        "name": "Etherious Natsu Dragneel",
-        "mail": "blazarusske@outlook.com.vn",
-        "mk": "None",
-        "2fa": "",
-        "id": "mn7milw8ne4g0m0v0be",
-        "isNurtured": false
-      },
-      {
-        "name": "mizuknim7xl",
-        "mail": "mizukiedraza@outlook.com",
-        "mk": "Edraza367@",
-        "2fa": "",
-        "id": "mn885zqjpsxuue6wype",
-        "isNurtured": false
       }
     ],
     "Google": [
@@ -413,14 +389,6 @@
         "mk": "abcd@6789",
         "2fa": "",
         "id": "mlj70l2o3m1wa1249yg",
-        "isNurtured": false
-      },
-      {
-        "name": "Phát",
-        "mail": "ngongochungphat@gmail.com",
-        "mk": "PAbc123!",
-        "2fa": "",
-        "id": "mmnhzgqvw1zw1wuk8bp",
         "isNurtured": false
       }
     ],
@@ -546,30 +514,6 @@
         "mk": "ILoveu@6789",
         "2fa": "",
         "id": "mlw0a2uvpie07iqfd5",
-        "isNurtured": false
-      },
-      {
-        "name": "Kaizse Dinh",
-        "mail": "blazarusske@outlook.com.vn",
-        "mk": "UKCy5_|9($?5}D!Q",
-        "2fa": "",
-        "id": "mn7ma3hy612m1wgbzks",
-        "isNurtured": false
-      },
-      {
-        "name": "Mizuki Edraza",
-        "mail": "mizukiedraza@outlook.com",
-        "mk": "zO{+/Jh2uMfit1UV",
-        "2fa": "",
-        "id": "mn883q7kfe6bvw3wric",
-        "isNurtured": false
-      },
-      {
-        "name": "KaraYaShi",
-        "mail": "karayashi@outlook.com",
-        "mk": "YaShiKara304#",
-        "2fa": "",
-        "id": "mnb63ovgz81xsajq6i",
         "isNurtured": false
       }
     ]
