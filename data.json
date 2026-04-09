@@ -499,6 +499,14 @@
         "mk": "phatdepzai",
         "2fa": "None",
         "id": "mib5eofym1ap706hxxo"
+      },
+      {
+        "name": "coconut36701",
+        "mail": "coconut36701",
+        "mk": "PAbc123!",
+        "2fa": "",
+        "id": "mnpi9qfrgn93riaypb",
+        "isNurtured": false
       }
     ],
     "Discord": [
@@ -508,6 +516,14 @@
         "mk": "PAbc123!",
         "2fa": "",
         "id": "mk6zw9fxu6ft9e7k81j",
+        "isNurtured": false
+      },
+      {
+        "name": "Mizuki_Baku",
+        "mail": "ngongochungphat@gmail.com",
+        "mk": "phat12345679",
+        "2fa": "",
+        "id": "mnl806notts4esktk5r",
         "isNurtured": false
       }
     ],
@@ -580,7 +596,8 @@
         "id": "mnb63ovgz81xsajq6i",
         "isNurtured": false
       }
-    ]
+    ],
+    "Valorant": []
   },
   "platforms": {
     "Instagram": {
@@ -626,6 +643,10 @@
     "Outlook": {
       "icon": "",
       "color": "#0062ff"
+    },
+    "Valorant": {
+      "icon": "",
+      "color": "#ff0000"
     }
   }
 }
