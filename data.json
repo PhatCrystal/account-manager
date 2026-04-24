@@ -58,15 +58,14 @@
         "2fa": "D7PJ PBLW B7RU QMGR 74P6 VAMW E266 MBGG",
         "id": "mib5etlaa2wksmvb1p8",
         "batchId": "batch_1766157675051",
-        "isNurtured": true
+        "isNurtured": false
       },
       {
         "name": "dinosaur.7693248",
         "mail": "dinosour@mailngon.top",
         "mk": "DinosaurGame@123",
         "2fa": "KUAI 2BEZ KNCL 2RK2 LQTS QKK2 OIHB 5HPC",
-        "id": "mib5etlc4yiysh4czhf",
-        "isNurtured": true
+        "id": "mib5etlc4yiysh4czhf"
       },
       {
         "name": "duyhoang161",
@@ -105,15 +104,6 @@
         "batchId": "batch_1766157675051"
       },
       {
-        "name": "hoang_binhpham",
-        "mail": "hoangphambinh@mailngon.top",
-        "mk": "m+t=D1MA1vG8O4lT",
-        "2fa": "4ODJ IJOU YV5W 5Q7X URDO X6PE FBMK 2LAF",
-        "id": "mimkadicu3wkvgpbzz",
-        "isNurtured": false,
-        "batchId": "batch_1766157675051"
-      },
-      {
         "name": "vonhat3955",
         "mail": "zakwuz@eacademia.uk",
         "mk": "vXZf!k8uK`}<4V",
@@ -128,15 +118,6 @@
         "mk": "iXiBr^YO+o/qT5JA",
         "2fa": "OVNU PQPK M5SY U2N2 H4DT ACLF RJLR YZTM",
         "id": "mj05b938vinixbbkjj",
-        "isNurtured": false,
-        "batchId": "batch_1766157675051"
-      },
-      {
-        "name": "doantuan274",
-        "mail": "EydieChristyiq2bj@cecol.us",
-        "mk": "[J9:H&Hr`63m4ifT",
-        "2fa": "JQ23 CXCW 5CS3 CIWN Q7NQ B5PI SLC7 QM3S",
-        "id": "mj1kcvtp3i6rog46oym",
         "isNurtured": false,
         "batchId": "batch_1766157675051"
       },
@@ -194,14 +175,6 @@
         "isNurtured": true
       },
       {
-        "name": "min67797",
-        "mail": "alex5004@denocloudmail.store",
-        "mk": ",7!Y/VpsCmc@Q:x(",
-        "2fa": "CQZZ TKAI QJK4 TY3W 3JY6 KS3X U7QY WMS6",
-        "id": "mjljef9ck7ozmnhn0hk",
-        "isNurtured": false
-      },
-      {
         "name": "akirachauanh",
         "mail": "EsmaMadden8g5c7@ccsch.us",
         "mk": "W98IuT>-d[Yp)Pt%",
@@ -250,20 +223,20 @@
         "isNurtured": true
       },
       {
-        "name": "wen21618",
-        "mail": "chen2062@denocloudmail.store",
-        "mk": "T%gW5m:|]6gk4DYS",
-        "2fa": "WGWT FAEJ HLVC FN3E JGA4 VCGE UJIE GQWO",
-        "id": "mk684btudaheg03myd",
-        "isNurtured": false
-      },
-      {
         "name": "chaudieukhanh",
         "mail": "donghyun6319@denocloudmail.store",
         "mk": ";xG/F??pT@~,7!p,",
         "2fa": "EV2C IBXC V4PM WMJP 3YZB 7N6U X5QH CA7W",
         "id": "mkl1w1dboly2gatwugj",
         "isNurtured": true
+      },
+      {
+        "name": "lyhongvandiem",
+        "mail": "eot247uzz6@hathitrannhien.edu.vn",
+        "mk": "nol1S.N@jD)7O2+y",
+        "2fa": "",
+        "id": "mod571hf94ttxzoq7ct",
+        "isNurtured": false
       }
     ],
     "Facebook": [
@@ -321,6 +294,14 @@
         "2fa": "M3PY 6SZN XWAC VKXS CDHV AIR4 YVTL GNJZ",
         "id": "mlvvohjbci0kns73u7f",
         "isNurtured": false
+      },
+      {
+        "name": "Minevar",
+        "mail": "phatcrystal@studentidcard.me",
+        "mk": "F)z,ckHfDmtm]w/7",
+        "2fa": "",
+        "id": "mnvngrjb7f7kqc4vv44",
+        "isNurtured": false
       }
     ],
     "TikTok": [
@@ -337,15 +318,56 @@
         "mk": "PAbc123!",
         "2fa": "LWSK7ZBZJNPTNCKLPNAOHMTQGGKAICGW",
         "id": "mib5en1iwkomsakzusg"
+      },
+      {
+        "name": "Phồ Thanh Đụng",
+        "mail": "huyenvu181@outlook.com.vn",
+        "mk": "None",
+        "2fa": "",
+        "id": "mn7luwuab4kaixfgv1r",
+        "isNurtured": false
+      },
+      {
+        "name": "Etherious Natsu Dragneel",
+        "mail": "blazarusske@outlook.com.vn",
+        "mk": "None",
+        "2fa": "",
+        "id": "mn7milw8ne4g0m0v0be",
+        "isNurtured": false
+      },
+      {
+        "name": "mizuknim7xl",
+        "mail": "mizukiedraza@outlook.com",
+        "mk": "Edraza367@",
+        "2fa": "",
+        "id": "mn885zqjpsxuue6wype",
+        "isNurtured": false
+      },
+      {
+        "name": "toolkit389",
+        "mail": "phatcrystal@toolkitmmo.com",
+        "mk": "ToolkitSkibidi@123",
+        "2fa": "",
+        "id": "mneraiph18d01h5sii",
+        "isNurtured": false
+      },
+      {
+        "name": "Main",
+        "mail": "bup325431@gmail.com",
+        "mk": "Mail",
+        "2fa": "QU6BI55X7QQDKMC6THR2QUPGCPU7YRPN",
+        "id": "mnyugr66jt0h2hrfo3",
+        "isNurtured": false
       }
     ],
     "Google": [
       {
         "name": "Huy Hưng",
         "mail": "huyh59098@gmail.com",
-        "mk": "PAbc123!",
-        "2fa": "",
-        "id": "mib5ene940m1aefj10q"
+        "mk": "PAbc123!@@@",
+        "2fa": "3u44 x6f3 72lb groz ijpj p4al vvgr l3w5",
+        "id": "mib5ene940m1aefj10q",
+        "isNurtured": false
       },
       {
         "name": "Ngoi Phat",
@@ -390,6 +412,22 @@
         "mk": "abcd@6789",
         "2fa": "",
         "id": "mlj70l2o3m1wa1249yg",
+        "isNurtured": false
+      },
+      {
+        "name": "Phát",
+        "mail": "ngongochungphat@gmail.com",
+        "mk": "phat12345679@1",
+        "2fa": "",
+        "id": "mmnhzgqvw1zw1wuk8bp",
+        "isNurtured": false
+      },
+      {
+        "name": "Beo Duong",
+        "mail": "beoduong626@gmail.com",
+        "mk": "PAbc123!",
+        "2fa": "",
+        "id": "mo0751uhe3fdhmvdabb",
         "isNurtured": false
       }
     ],
@@ -460,6 +498,14 @@
         "mk": "phatdepzai",
         "2fa": "None",
         "id": "mib5eofym1ap706hxxo"
+      },
+      {
+        "name": "coconut36701",
+        "mail": "coconut36701",
+        "mk": "PAbc123!",
+        "2fa": "",
+        "id": "mnpi9qfrgn93riaypb",
+        "isNurtured": false
       }
     ],
     "Discord": [
@@ -469,6 +515,14 @@
         "mk": "PAbc123!",
         "2fa": "",
         "id": "mk6zw9fxu6ft9e7k81j",
+        "isNurtured": false
+      },
+      {
+        "name": "Mizuki_Baku",
+        "mail": "ngongochungphat@gmail.com",
+        "mk": "phat12345679",
+        "2fa": "",
+        "id": "mnl806notts4esktk5r",
         "isNurtured": false
       }
     ],
@@ -515,6 +569,40 @@
         "mk": "ILoveu@6789",
         "2fa": "",
         "id": "mlw0a2uvpie07iqfd5",
+        "isNurtured": false
+      },
+      {
+        "name": "Kaizse Dinh",
+        "mail": "blazarusske@outlook.com.vn",
+        "mk": "UKCy5_|9($?5}D!Q",
+        "2fa": "",
+        "id": "mn7ma3hy612m1wgbzks",
+        "isNurtured": false
+      },
+      {
+        "name": "Mizuki Edraza",
+        "mail": "mizukiedraza@outlook.com",
+        "mk": "zO{+/Jh2uMfit1UV",
+        "2fa": "",
+        "id": "mn883q7kfe6bvw3wric",
+        "isNurtured": false
+      },
+      {
+        "name": "KaraYaShi",
+        "mail": "karayashi@outlook.com",
+        "mk": "YaShiKara304#",
+        "2fa": "",
+        "id": "mnb63ovgz81xsajq6i",
+        "isNurtured": false
+      }
+    ],
+    "Valorant": [
+      {
+        "name": "LunarWolfTail",
+        "mail": "phatngo276@gmail.com",
+        "mk": "PAbc123!",
+        "2fa": "",
+        "id": "mnquau2z5w2i54sn4h4",
         "isNurtured": false
       }
     ]
@@ -563,6 +651,10 @@
     "Outlook": {
       "icon": "",
       "color": "#0062ff"
+    },
+    "Valorant": {
+      "icon": "",
+      "color": "#ff0000"
     }
   }
 }
