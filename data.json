@@ -581,7 +581,8 @@
         "id": "mnquau2z5w2i54sn4h4",
         "isNurtured": false
       }
-    ]
+    ],
+    "Paypal": []
   },
   "platforms": {
     "Instagram": {
@@ -631,6 +632,10 @@
     "Valorant": {
       "icon": "",
       "color": "#ff0000"
+    },
+    "Paypal": {
+      "icon": "",
+      "color": "#3b82f6"
     }
   }
 }
