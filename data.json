@@ -365,7 +365,7 @@
         "mk": "pxnwvaqin55@@",
         "2fa": "",
         "id": "mp9kerdw72gakzxzb9p",
-        "isNurtured": true
+        "isNurtured": false
       }
     ],
     "Google": [
@@ -625,6 +625,14 @@
         "mk": "pxnwvaqin55",
         "2fa": "",
         "id": "mp9kcsrnbi0auncpo76",
+        "isNurtured": false
+      },
+      {
+        "name": "Munkberg Herta",
+        "mail": "rfcaopxomh8789@hotmail.com",
+        "mk": "{MmQqFPk~wB2M~mF",
+        "2fa": "",
+        "id": "mpcrted8k1tnazcd4w",
         "isNurtured": false
       }
     ],
