@@ -394,9 +394,10 @@
       {
         "name": "Komodo",
         "mail": "komododragon016@gmail.com",
-        "mk": "komodo12345679",
+        "mk": "komodo12345679@",
         "2fa": "None",
-        "id": "mib5enec75gy1m56sia"
+        "id": "mib5enec75gy1m56sia",
+        "isNurtured": false
       },
       {
         "name": "Ngô Phát",
