@@ -20,7 +20,8 @@
     ],
     "Facebook": [],
     "Instagram": [],
-    "dfvd": []
+    "dfvd": [],
+    "fvdvd": []
   },
   "platforms": {
     "TikTok": {
@@ -38,6 +39,10 @@
     "dfvd": {
       "icon": "gdgdgdgdgdgdgd",
       "color": "#4668a0"
+    },
+    "fvdvd": {
+      "icon": "vddvd",
+      "color": "#3b82f6"
     }
   }
 }
