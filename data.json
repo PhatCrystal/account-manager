@@ -21,7 +21,8 @@
     "Facebook": [],
     "Instagram": [],
     "dfvd": [],
-    "fvdvd": []
+    "fvdvd": [],
+    "sdfdsfs": []
   },
   "platforms": {
     "TikTok": {
@@ -42,6 +43,10 @@
     },
     "fvdvd": {
       "icon": "vddvd",
+      "color": "#3b82f6"
+    },
+    "sdfdsfs": {
+      "icon": "fsfs",
       "color": "#3b82f6"
     }
   }
