@@ -1,6 +1,12 @@
 {
   "data": {
-    "TikTok": [
+    "Facebook": [],
+    "Instagram": [],
+    "dfvd": [],
+    "fvdvd": [],
+    "sdfdsfs": [],
+    "sdfsfsfs": [],
+    "TikTokfsfsf": [
       {
         "name": "Hoàng Trung Anh",
         "mail": "vd57jahnod@tempmail.id.vn",
@@ -17,19 +23,9 @@
         "id": "msbkjwo7dm0ysh7cxwi",
         "isNurtured": false
       }
-    ],
-    "Facebook": [],
-    "Instagram": [],
-    "dfvd": [],
-    "fvdvd": [],
-    "sdfdsfs": [],
-    "sdfsfsfs": []
+    ]
   },
   "platforms": {
-    "TikTok": {
-      "icon": "",
-      "color": "#ff0050"
-    },
     "Facebook": {
       "icon": "",
       "color": "#1877f2"
@@ -53,6 +49,10 @@
     "sdfsfsfs": {
       "icon": "fsfsfs",
       "color": "#3b82f6"
+    },
+    "TikTokfsfsf": {
+      "icon": "sdf",
+      "color": "#ff0050"
     }
   }
 }
