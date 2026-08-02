@@ -19,7 +19,8 @@
       }
     ],
     "Facebook": [],
-    "Instagram": []
+    "Instagram": [],
+    "dfvd": []
   },
   "platforms": {
     "TikTok": {
@@ -33,6 +34,10 @@
     "Instagram": {
       "icon": "",
       "color": "#ec4899"
+    },
+    "dfvd": {
+      "icon": "gdgdgdgdgdgdgd",
+      "color": "#4668a0"
     }
   }
 }
